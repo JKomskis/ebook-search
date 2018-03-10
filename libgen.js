@@ -1,7 +1,7 @@
 const request = require('request');
 const jsdom = require('jsdom');
 
-const host = 'http://localhost:8002';
+const host = 'https://www.jkomskis.com/ebooks/api';
 
 function getLibgenResults(res, query, page){
   request(

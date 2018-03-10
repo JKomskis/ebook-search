@@ -11,13 +11,13 @@ function search() {
   document.getElementById('ircLoadMoreButton').classList.add('hidden');
   document.getElementById('searchButton').innerText = 'Searching...';
   document.getElementById('searchButton').classList.add('disabled');
-  var searchInput = document.getElementById('searchInput').textContent;
+  var searchInput = (<HTMLInputElement>document.getElementById('searchInput')).value;
   query = searchInput;
-  let url = 'http://localhost:8002/libgen/search?query='
+  let url = 'https://www.jkomskis.com/ebooks/api/libgen/search?query='
             + encodeURI(searchInput).replace(/%20/g,'+')
             + '&page=' + libgenPage;
   getLibgenResults(url);
-  url = 'http://localhost:8002/irc/search?query='
+  url = 'https://www.jkomskis.com/ebooks/api/irc/search?query='
             + encodeURI(searchInput)
             + '&page=' + ircPage
   getIrcResults(url);
@@ -27,7 +27,7 @@ function libgenLoadMore() {
   document.getElementById('libgenLoadMoreButton').innerText = 'Loading...';
   document.getElementById('libgenLoadMoreButton').classList.add('disabled');
   ++libgenPage;
-  let url = 'http://localhost:8002/libgen/search?query='
+  let url = 'https://www.jkomskis.com/ebooks/api/libgen/search?query='
             + encodeURI(query).replace(/%20/g,'+')
             + '&page=' + libgenPage;
   getLibgenResults(url);
@@ -126,7 +126,7 @@ function ircLoadMore() {
   document.getElementById('ircLoadMoreButton').innerText = 'Loading...';
   document.getElementById('ircLoadMoreButton').classList.add('disabled');
   ++ircPage;
-  let url = 'http://localhost:8002/irc/search?query='
+  let url = 'https://www.jkomskis.com/ebooks/api/irc/search?query='
             + encodeURI(query).replace(/%20/g,'+')
             + '&page=' + libgenPage;
   getIrcResults(url);

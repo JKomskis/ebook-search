@@ -2,7 +2,7 @@ const request = require('request');
 var irc = require('xdcc').irc;
 var ProgressBar = require('progress');
 
-const host = 'http://localhost:8002';
+const host = 'https://www.jkomskis.com/ebooks/api';
 
 async function getIrcResults(res, query, page) {
   console.log('Getting search results from IxIRC...');
@@ -49,7 +49,7 @@ function parseIxIrcSearchResults(data) {
     if(result.name.slice((result.name.lastIndexOf(".") - 1 >>> 0) + 2) != 'epub'){
       continue;
     }
-    let downloadLink = host + pathPrefix + '/irc/download?network=' + result.naddr
+    let downloadLink = host + '/irc/download?network=' + result.naddr
                         + '&channel=' + encodeURIComponent(result.cname)
                         + '&bot=' + encodeURIComponent(result.uname)
                         + '&pack=' + encodeURIComponent(result.n);
