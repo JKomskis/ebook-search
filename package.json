@@ -1,0 +1,30 @@
+{
+  "name": "ebook-search",
+  "version": "1.0.0",
+  "description": "A NodeJS backend that searches various ebook sources",
+  "main": "EbookSearch.js",
+  "scripts": {
+    "test": "nodemon EbookSearch.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/JKomskis/ebook-search.git"
+  },
+  "author": "",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/JKomskis/ebook-search/issues"
+  },
+  "homepage": "https://github.com/JKomskis/ebook-search#readme",
+  "dependencies": {
+    "body-parser": "^1.18.2",
+    "express": "^4.16.2",
+    "jsdom": "^11.6.2",
+    "progress": "^2.0.0",
+    "request": "^2.83.0",
+    "xdcc": "^0.2.2"
+  },
+  "devDependencies": {
+    "nodemon": "^1.17.1"
+  }
+}

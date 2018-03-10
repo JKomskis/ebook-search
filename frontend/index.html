@@ -1,0 +1,47 @@
+<!doctype html>
+
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+
+  <title>Ebook Search</title>
+  <meta name="description" content="Ebook Search">
+  <meta name="author" content="Joseph Komskis">
+
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/spectre.css/0.5.0/spectre.min.css">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <link rel="stylesheet" href="../solarized.css">
+  <link rel="stylesheet" href="./css/style.css">
+
+  <script type="text/javascript" src="./js/script.js"></script>
+
+</head>
+
+<body>
+  <div class="container" id="main">
+    <h1 class="title">Ebook Search</h1>
+    <div class="columns col-gapless">
+      <div class="column col-6 col-sm-12 col-ml-auto">
+        <input id="searchInput" class="form-input" type="text" placeholder="book and/or author name...">
+      </div>
+      <div class="column col-1 col-sm-12 col-mr-auto">
+        <button id="searchButton" class="btn" onclick="search()">Search</button>
+      </div>
+    </div>
+    <hr>
+
+    <div>
+      <h2>Library Genesis</h2>
+      <div id="libgenResults" class="columns">
+      </div>
+      <button id="libgenLoadMoreButton" class="btn hidden" onclick="libgenLoadMore()">Load More</button>
+      <h2>IRC</h2>
+      <ul id="ircResults">
+      </ul>
+      <button id="ircLoadMoreButton" class="btn hidden" onclick="ircLoadMore()">Load More</button>
+    </div>
+  </div>
+
+</body>
+</html>

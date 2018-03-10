@@ -1,3 +1,10 @@
+# Compiled and minified files
+build
+js
+
+# Temporary folder
+temp
+
 # Logs
 logs
 *.log
