@@ -68,7 +68,7 @@ function createCard(book) {
   container.classList.add('col-sm-12');
   container.innerHTML = 
     [
-      '<div class="card">',
+      '<div class="card card-3">',
       '<div class="card-image">',
         '<a href=' + book.downloadLink + '><img src="' + book.cover + '" class="img-responsive col-mx-auto"></a>',
       '</div>',
