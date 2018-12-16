@@ -41,7 +41,7 @@ app.get('/irc/search', (req, res) => {
 
 app.get('/irc/download', (req, res) => {
   console.log('Downloading pack #' + req.query.pack + ' from ' + req.query.bot
-              + ' on channel ' + req.channel.channel + ' at ' + req.query.network);
+              + ' on channel ' + req.query.channel + ' at ' + req.query.network);
   console.log(req.query);
   let network = req.query.network;
   let channel = req.query.channel;
