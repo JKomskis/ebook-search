@@ -5,7 +5,7 @@ all: compileTS
 
 #compile typescript files
 compileTS: ts/script.ts
-	tsc ts/script.ts --outDir frontend/js $(FLAGS)
+	tsc ts/script.ts --outDir js $(FLAGS)
 
 #Clean
 clean:
