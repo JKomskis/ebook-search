@@ -4,7 +4,8 @@
   "description": "A NodeJS backend that searches various ebook sources",
   "main": "EbookSearch.js",
   "scripts": {
-    "test": "nodemon EbookSearch.js"
+    "test": "nodemon EbookSearch.js",
+    "start": "node EbookSearch.js"
   },
   "repository": {
     "type": "git",
