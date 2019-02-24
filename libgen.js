@@ -2,10 +2,12 @@ const request = require('request');
 const jsdom = require('jsdom');
 
 const host = 'https://www.jkomskis.com/ebooks/api';
+const libgenHost = 'http://libgen.io';
+const downloadHost = 'http://libgen.io';
 
 function getLibgenResults(res, query, page){
   request(
-    'http://libgen.io/search.php?&req=' + query + 
+    libgenHost + '/search.php?&req=' + query + 
     '&phrase=1&view=detailed&column=def&sort=def&sortmode=ASC&page=' + page,
     (error, response, body) => {
       console.log('Got search results from Library Genesis, parsing...')
@@ -46,7 +48,7 @@ function parseSearchEntry(res, entry) {
 
   let parsed = {
     title: parseEntryTitle(rows[1]),
-    cover: 'http://libgen.io' + parseEntryCover(rows[1]),
+    cover: libgenHost + parseEntryCover(rows[1]),
     author: parseEntryAuthor(rows[2]),
     publisher: parseEntryPublisher(rows[4]),
     year: parseEntryYear(rows[5]),
@@ -58,7 +60,7 @@ function parseSearchEntry(res, entry) {
   }
   
   let md5 = parseEntryMd5(rows[1]);
-  parsed['downloadLink'] = host + '/libgen/download?md5=' + md5;
+  parsed['downloadLink'] = parseDownloadLink(rows[1]);
 
   return parsed;
 }
@@ -69,6 +71,10 @@ function parseEntryTitle(row) {
 
 function parseEntryCover(row) {
   return row.querySelectorAll('td')[0].querySelector('a').querySelector('img').src.trim();
+}
+
+function parseDownloadLink(row) {
+  return downloadHost + row.querySelectorAll('td')[0].querySelector('a').href;
 }
 
 function parseEntryAuthor(row) {
@@ -113,6 +119,8 @@ function parseEntryMd5(row) {
   return link.substring(link.indexOf('=')+1).trim();
 }
 
+/*
+DEPRECATED
 function downloadRedirect(res, md5) {
   request(
     'http://www.libgen.io/ads.php?md5=' + md5,
@@ -126,8 +134,9 @@ function downloadRedirect(res, md5) {
     }
   );
 }
+*/
 
 module.exports = {
-  getLibgenResults: getLibgenResults,
-  downloadRedirect: downloadRedirect
+  getLibgenResults: getLibgenResults//,
+  //downloadRedirect: downloadRedirect
 };

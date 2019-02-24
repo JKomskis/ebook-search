@@ -25,12 +25,15 @@ app.get('/libgen/search', (req, res) => {
   libgen.getLibgenResults(res, query, req.query.page);
 });
 
+/*
+DEPRECATED
 app.get('/libgen/download', (req, res) => {
   console.log('Fetching download link for ' + req.query.md5);
   let md5 = req.query.md5;
 
   libgen.downloadRedirect(res, md5);
 });
+*/
 
 app.get('/irc/search', (req, res) => {
   console.log('Searching IRC for ' + req.query.query);
