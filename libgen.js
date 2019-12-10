@@ -2,8 +2,8 @@ const request = require('request');
 const jsdom = require('jsdom');
 
 const host = 'https://www.jkomskis.com/ebooks/api';
-const libgenHost = 'http://libgen.io';
-const downloadHost = 'http://libgen.io';
+const libgenHost = 'http://libgen.is';
+const downloadHost = 'http://libgen.is';
 
 function getLibgenResults(res, query, page){
   request(
